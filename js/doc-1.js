@@ -228,9 +228,9 @@
    
    // *!________________________________________________________*
 
-  // ?Получаем друзей которые только (onlan)
+  // ?Получаем имена друзей которые только (online)
 
-  // const friends = [
+//   const friends = [
 //   { name: "Vini", online: false },
 //   { name: "Den", online: true },
 //   { name: "Leo", online: true },
@@ -240,6 +240,57 @@
 
 // console.table(friends);
 
+// const getOnlineFriends = function (allFriends) {
+//    const onlineFriends = [];
+
+//    for (const friend of allFriends) {
+//       console.log(friend);
+//       console.log(friend.online);
+
+//       if (friend.online) {
+//          onlineFriends.push(friend)
+//       }
+//    }
+//    return onlineFriends;
+// };
+
+// console.log(getOnlineFriends(friends));
+
+// !Если не онлайн друзья подставить нужно вот такое значение
+
+// !) if (friend.online) {
+   //  offlineFriends.push(friend)
+// }
+
+// *!________________________________________________________*
+
+// !Задача - Создать два массива онлайн и офлайн
+// если тру то впервую ячейку
+// если фолпс то во воторую ячейку
+
+// const getFriendsByOnlineStatus = function (allFriends) {
+//    const friendsByStatus = {
+//       online: [],
+//       offline: [],
+//    };
+
+//    for (const friend of allFriends) {
+//       if (friend.online) {
+//          friendsByStatus.online.push(friend);
+//          continue;
+//       }
+
+//       friendsByStatus.offline.push(friend);
+
+      
+//       // const key = friend.online ? 'online' : 'offline';
+//       // friendsByStatus[key].push(friend);
+//    }
+
+//    return friendsByStatus;
+// };
+
+// console.log(getFriendsByOnlineStatus(frames));
 
 // *!________________________________________________________*
 
@@ -251,7 +302,7 @@
    
    // console.log(numbers);
    
-   // *!____________________________________________________________*
+// *!____________________________________________________________*
    
    // ?Поиск самой маленькой и больлшой температуры (числа)
    
