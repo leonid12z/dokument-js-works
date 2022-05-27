@@ -179,3 +179,137 @@
 // console.log(playlist);
 
 // *!____________________________________________________________*
+
+// ?Паттерн обьекта настроек
+// Деструкоторизация параметры - обьекта в подписи функции
+// rest при деструкторизации подписки
+
+// const profile = {
+//   name: 'Jo Ride',
+//   tag: 'jgluke',
+//   location: 'Ocho Rios Ja',
+//    avatar: "https://ad.admitad.com/g/u1q0hccbxn4501b0522d34acc90a61",
+//    stats: {
+//       followers: 1234,
+//       views: 9876,
+//       likes: 5678
+//   },
+// };
+
+// const makeProfileMarkup = function (userProfile) {
+//    const {
+//       avatar = 'https://ad.admitad.com/g/u1q0hccbxn4501b0522d34acc90a61',
+//       name,
+//       tag,
+//       location = 'Planet Red',
+//       stats: { followers, views, likes },
+//    } = userProfile;
+
+//    return `<div>
+//    <img src = "${avatar}" alt = "user avatar">
+//    <p>${name}<span>@${tag}</span></p>
+//    <p>Location: ${location}</p>
+//    <ul>
+//    <li>Followers: ${followers}<li>
+//    <li>Views: ${views}<li>
+//    <li>Likes: ${likes}<li>
+//    </ul>
+//    </div>`;
+// };
+
+// const markup = makeProfileMarkup(profile);
+
+// console.log(markup);
+
+// document.body.insertAdjacentHTML('afterbegin', markup);
+
+// *!____________________________________________________________*
+
+// ?Задача по обьектам (кашолка товара)
+// Работа колекции товара в корзине 
+
+// const cart = {
+//    items: [],
+//    getItems() { 
+//       return this.items
+//    },
+//    add(product) {
+//       console.table(this.items);
+
+//       for (const item of this.items) {
+//          console.log(item);
+
+//          if (item.name === product.name) {
+//             item.quantity += 1;
+
+//             return;
+//             // console.log('Такой продукт ужеесть ', product.name);
+//          }
+//       }
+
+//       const newProduct = {
+//          ...product,
+//          quantity: 1, 
+//       }
+//       this.items.push(newProduct)
+//     },
+//    remove(productName) { 
+//       const { items } = this;
+
+//       for (let i = 0; i < items.length; i += 1) {
+//          const { name } = items[i];
+
+//          if (productName === name) {
+//             console.log('Нашли такой продукт ', productName);
+//             console.log('Это индекс ', i);
+
+//             items.splice(i, 1);
+//          }
+//       }
+//    },
+//    clear() { 
+//       this.items = [];
+//    },
+//    countTotalPrice() {
+//       const { items } = this;
+//       let total = 0;
+
+//       for (const { price, quantity } of items) {
+//          total += price * quantity;
+//      }
+
+//       return total;
+
+//     },
+//    increaseQuantity(productName) { },
+//    decreaseQuantity(productName) { },
+// };
+
+// console.log(cart.getItems());
+
+// cart.add({ name: '🍏', price: 50 });
+// cart.add({ name: '🍌', price: 70 });
+// cart.add({ name: "🍌", price: 70 });
+// cart.add({ name: '🍓', price: 120 });
+// cart.add({ name: '🍒', price: 150 });
+// cart.add({ name: "🍒", price: 150 });
+// cart.add({ name: "🍒", price: 150 });
+
+// console.table(cart.getItems());
+
+// console.log('Total: ', cart.countTotalPrice());
+
+// cart.remove("🍏");
+// console.table(cart.getItems());
+
+// cart.clear();
+// console.log(cart.getItems());
+
+// cart.increaseQuantity("🍓");
+// console.table(cart.getItems());
+
+// cart.decreaseQuantity("🍌");
+// cart.decreaseQuantity("🍌");
+// console.table(cart.getItems());
+
+// *!____________________________________________________________*
