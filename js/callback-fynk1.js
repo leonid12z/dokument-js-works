@@ -141,9 +141,44 @@ fnA('Hello', fnB);
 // const r1 = filter([1, 2, 3, 4, 5], callback1)
 // console.log(r1);
 
-// // Инлайн версия 
+// // Инлайн версия
 // const r2 = filter([1, 2, 3, 4, 5, 6, 7, 8, 9], function (value) {
 //    return value <= 4;
 // });
 // console.log(r2);
+// ! *__________________________________________________________________*
+
+// ?Перебор масива фруктов
+
+// const fruits = [
+//   { name: "apples", quantity: 300, isFresh: true },
+//   { name: "grapes", quantity: 100, isFresh: false },
+//   { name: "bananas", quantity: 150, isFresh: true },
+//   { name: "laym", quantity: 500, isFresh: false },
+// ];
+
+// const filter = function (array, test) {
+//    // Создания пустого масива
+//    const filteredArray = [];
+
+//    // Перебор орегинального масива
+//    for (const el of array) {
+//       console.log(el);
+//       // Для кождого элемента вызов теста
+//       const passed = test(el);
+//    //   Пушь по условию
+//       if (passed) {
+//          filteredArray.push(el);
+//       }
+//    }
+//    // Возврат пустого масива
+//    return filteredArray;
+// };
+
+// const getFruitsWithQuantity = function (fruit) {
+//    return fruit.quantity >= 120;
+// };
+
+// const r3 = filter(fruits, getFruitsWithQuantity);
+// console.log(r3);
 // ! *__________________________________________________________________*
