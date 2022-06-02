@@ -7,18 +7,18 @@
 // функция которая принимает другие функции как параметр или возращает
 // функцию как результат совоей работы называеться(функцией высшего пордяка)
 
-const fnA = function (message, callback) {
-   console.log(message);
+// const fnA = function (message, callback) {
+//    console.log(message);
 
-   console.log(callback);
-   callback(250);
-};
+//    console.log(callback);
+//    callback(250);
+// };
 
-const fnB = function (number) {
-   console.log('Это лог при вызове fnB', number);
-};
+// const fnB = function (number) {
+//    console.log('Это лог при вызове fnB', number);
+// };
 
-fnA('Hello', fnB);
+// fnA('Hello', fnB);
 
 // ! *__________________________________________________________________*
 
