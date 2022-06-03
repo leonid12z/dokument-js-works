@@ -86,25 +86,34 @@
 
 // ?Приватнные данные и функции - скрытие реализации, интерфейса
 
+// // функция вскрывания как отдельную переменную
 // const salaryManagerFactory = function (emloyeeName, baseSalary) {
 //    let salary = baseSalary;
 
-//    const changeBy = function (amount) {
-//       salary += amount;
-//    };
 
+// // возращает обьект и вызов методов
 //    return {
 //       raise(amount) {
-//          changeBy(amount);
+//          if (amount > 1000){
+//             return 'OK';
+//          }
+//           salary += amount;
 //       },
 //       lower(amount) {
-//          changeBy(amount);
+//          salary -= amount;;
 //       },
 //       current() {
 //          return `Текущая зарплата ${emloyeeName} - ${salary}`;
 //       },
 //    };
 // };
+
+// const salaryManager = salaryManagerFactory('Leo', 10000);
+
+// console.log(salaryManager.current());
+// console.log(salaryManager.raise(5000));
+
+// console.log(salaryManager.current());
 
 // ! *__________________________________________________________________*
 
@@ -134,4 +143,65 @@
 // myLib.add(12);
 // console.log(myLib.getValue());
 
+// ! *__________________________________________________________________*
+
+// !СТРЕЛОЧНАЯ ФУНКЦИЯ (синтаксис =>)
+
+// ?Обьявление
+// Явный и не явный возрат
+// Аргументы
+// Не явный возрат обьекта
+
+// const add = function (a, b, c) {
+//    console.log(a, b, c);
+//    return a + b + c;
+// };
+
+// const addArrow = (a, b, c) => {
+//    console.log(a, b, c);
+//    return a + b + c;
+// };
+// console.log(add(20, 35, 55));
+// ! *__________________________________________________________________*
+// // Если параметрет только один можно пропустить скопки
+// const addArro = a => {
+//   console.log(a);
+//   return a;
+// };
+
+// // Если нет пораметра
+// const addArroq = () => {
+//   console.log(a, b, c);
+//   return a + b + c;
+// };
+
+// // Явный возрат
+// const addArroww = (a, b, c) => {
+//   console.log(a, b, c);
+//   return a + b + c;
+// };
+
+// // Не явный возрат (вырожение может быть только одно)
+// const addArr = (a, b, c) => {
+//     return a + b + c;
+// };
+
+// const addArra = (a, b, c) => a + b + c;
+
+// //Получить все аргументы(у стрелочнных функций нет аргумента)
+// const addArrx = (...args) => {
+//   console.log(args);
+//   };
+// ! *__________________________________________________________________*
+
+// // Как вернуть результат выражения правильное действие
+
+// const fnA = () => ({ arroA: 12 })
+
+// console.log(fnA());
+
+// // Не правильное действие вырожения
+// const fnB = () => { arroB: 12 };
+
+// console.log(fnB());
 // ! *__________________________________________________________________*
