@@ -205,3 +205,127 @@
 
 // console.log(fnB());
 // ! *__________________________________________________________________*
+
+// !Синтаксис стрелочнных функций
+
+// ?с параметрами
+
+// const add = (a, b) => {
+//    // console.log('hello');
+//    return a + b;
+// };
+
+// console.log(add(10, 12));
+
+// ?с одним праметром
+
+// const addMessage = message => {
+//    console.log(message);
+// };
+
+// console.log(addMessage('hello'));
+
+// ?без праметров
+
+// const red = () => {
+//    console.log('hello');
+// }
+
+// red();
+// ! *__________________________________________________________________*
+
+// ?Явный возврат(explicit)
+
+// const add = (a, b) => {
+//    return a + b;
+// };
+
+// console.log(add(10, 12));
+   
+// ?НЕ явный возрат (implicit)
+
+// const add = (a, b) => a + b;
+
+// console.log(add(10, 12));
+// ! *__________________________________________________________________*
+
+// !Контекст стрелки
+
+// Контескст внутри стрелки определяеться местом ее обьявления, а не вызова
+// и ссылаеться на контекст родительской функции
+
+// const showThis = () => {
+//    console.log('this in shoeThis: ', this);
+// };
+
+// showThis() //this in showThis: window
+ 
+// const user = { name: 'Leo' };
+// user.showContext = showThis;
+
+// user.showContext(); //this in showThis: window
+ 
+// ! *__________________________________________________________________*
+// ?Задачка
+
+// const user = {
+//    fullName: 'Leo',
+//    showName() {
+//       console.log('this: ', this);
+//       console.log('this.fullName: ', this.fullName);
+
+//       // запомнилась в контексте меню
+//       const inner = () => {
+//          console.log('this in inner: ', this);
+//       };
+//       inner();
+//    },
+// };
+
+//  !👎Стрелка как методы обькта
+
+// const user = {
+//    fullName: 'Leo',
+//    showName() => {
+//       console.log('this: ', this);
+//       console.log('this.fullName: ', this.fullName);
+//    },
+// };
+
+// user.showName();
+// ! *__________________________________________________________________*
+
+// ?Стрелочная функция это не конструктор не может быть
+// !👍
+// const userName = function (name) {
+//    this.name = name;
+// };
+
+// console.log(new userName('Leo'));
+
+// !👎
+// const userName = name => {
+//    this.name = name;
+// };
+
+// console.log(new userName('Leo'));
+// ! *__________________________________________________________________*
+
+//  
+// const objA = {
+//    x: 15,
+//    showX() {
+//      console.log("this в objA.showX: ", this);
+//      console.log(this.x);
+   //   !👎
+//      const objB = {
+//        b: 25,
+//        showThis: () => {
+//          console.log("this в objB.showThis: ", this);
+//        },
+//      };
+//      objB.showThis();
+//    },
+// };
+// objA.showX();
+// ! *__________________________________________________________________*
