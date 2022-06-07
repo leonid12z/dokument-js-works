@@ -9,7 +9,7 @@
 //    - sort
 // -Чейтинг методов
 
-// ?Array.prototype.forEach(callback(currentValue, index, array), thisArg)
+// !Array.prototype.forEach(callback(currentValue, index, array), thisArg)
 // Поэлиментно преребирает орегинальный массив
 // Ничего не возращает
 // Заменяет класичесский for, если не нужно прерывать
@@ -24,7 +24,7 @@
 
 // console.log(numbers);
 // *!________________________________________________________________*
-// ?Array.prototype.map()
+// !Array.prototype.map()
 // Поэлементно перебирает орегинальный массив
 // Не измення орегинальный массив
 // Возращает орегинальный массив такойже дленны
@@ -95,7 +95,7 @@
 
 // console.table(upatedPlayers);
 // *!________________________________________________________________*
-// ?Array.prototype.filter()
+// !Array.prototype.filter()
 // Поэлементно перебирает оригинальный массив
 // Возращает новый массив(с элиментами или пустой)
 // Добобляет в возвращаемый массив элементов который удовлетворяет условия коллбек - функций
@@ -109,13 +109,13 @@
  
 // console.log(filteredNumbers);
 // *!________________________________________________________________*
-const players = [
-  { id: "player-1", name: "Leo", timePlayed: 300, points: 50, online: false },
-  { id: "player-2", name: "Piti", timePlayed: 150, points: 90, online: true },
-  { id: "player-3", name: "Givi", timePlayed: 500, points: 15, online: false },
-  { id: "player-4", name: "Aleks", timePlayed: 340, points: 86, online: true },
-  { id: "player-5", name: "Vidi", timePlayed: 280, points: 33, online: false },
-];
+// const players = [
+//   { id: "player-1", name: "Leo", timePlayed: 300, points: 50, online: false },
+//   { id: "player-2", name: "Piti", timePlayed: 150, points: 90, online: true },
+//   { id: "player-3", name: "Givi", timePlayed: 500, points: 15, online: false },
+//   { id: "player-4", name: "Aleks", timePlayed: 340, points: 86, online: true },
+//   { id: "player-5", name: "Vidi", timePlayed: 280, points: 33, online: false },
+// ];
 // *!________________________________________________________________*
 
 // ?Получаем масив всех онлайн игроков
@@ -132,4 +132,47 @@ const players = [
 
 // const hardcorePlayer = players.filter(player => player.timePlayed > 300);
 // console.log(hardcorePlayer);
+// *!________________________________________________________________*
+// !Array.prototype.find()
+// Поэлементно перебирает оригинальный массив
+// Возращает первый элемент удовлетвораяющий условия или undefined
+
+// const numbers = [5, 10, 15, 20, 25];
+
+// const number = numbers.find(number => number === 10);
+// console.log(number);
+// *!________________________________________________________________*
+// const players = [
+//   { id: "player-1", name: "Leo", timePlayed: 300, points: 50, online: false },
+//   { id: "player-2", name: "Piti", timePlayed: 150, points: 90, online: true },
+//   { id: "player-3", name: "Givi", timePlayed: 500, points: 15, online: false },
+//   { id: "player-4", name: "Aleks", timePlayed: 340, points: 86, online: true },
+//   { id: "player-5", name: "Vidi", timePlayed: 280, points: 33, online: false },
+// ];
+// *!________________________________________________________________*
+// ?Ищем игрока по id
+
+// const playerIdToFind = 'player-3';
+
+// const playerWithId = players.find(player => player.id === playerIdToFind);
+// console.log(playerWithId);
+
+// ?Деструкторизация пример
+// const playerIdToFind = 'player-5';
+
+// const playerWithId = players.find(({ id }) => id === playerIdToFind);
+// console.log(playerWithId);
+// *!________________________________________________________________*
+// ?Ищем игрока по имени
+
+// const playerNameToFind = 'Leo';
+
+// const playerWithName = players.find(player => player.name === playerNameToFind);
+// console.log(playerWithName);
+// *!________________________________________________________________*
+// ?Деструкторизация пример
+// const playerIdToFind = 'player-5';
+
+// const playerWithId = players.find(({ name }) => name === playerIdToFind);
+// console.log(playerWithId);
 // *!________________________________________________________________*
