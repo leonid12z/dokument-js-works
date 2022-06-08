@@ -176,3 +176,182 @@
 // const playerWithId = players.find(({ name }) => name === playerIdToFind);
 // console.log(playerWithId);
 // *!________________________________________________________________*
+// ?Пример функции по id
+
+// const finPlayerById = (allPlayer, playerId) => {
+//    return allPlayer.find(player => player.id === playerId);
+// };
+
+// console.log(finPlayerById(players, 'player-1'));
+// console.log(finPlayerById(players, 'players-5'));
+
+//  ?Деструкторизация пример
+
+// const finPlayerById = (allPlayer, playerId) =>
+//    allPlayer.find(({ id }) => id === playerId);
+   
+// console.log(finPlayerById(players, 'player-1'));
+// console.log(finPlayerById(players, 'players-5'));
+// *!________________________________________________________________*
+// const players = [
+//   { id: "player-1", name: "Leo", timePlayed: 300, points: 50, online: false },
+//   { id: "player-2", name: "Piti", timePlayed: 150, points: 90, online: true },
+//   { id: "player-3", name: "Givi", timePlayed: 500, points: 15, online: false },
+//   { id: "player-4", name: "Aleks", timePlayed: 340, points: 86, online: true },
+//   { id: "player-5", name: "Vidi", timePlayed: 280, points: 33, online: false },
+// ];
+// *!________________________________________________________________*
+// !Array.prototype.every()
+// Поэлементно прербирает орегинильный массив
+// Возращает true если все элементы массива удовлетворяет условия
+
+// const isAllOnline = players.every(player => player.online);
+// console.log('isAllOnline: ', isAllOnline);
+// *!________________________________________________________________*
+// !Array.prototype.some()
+// Поэлемнтно перебирает орегинальный массив
+// возвращает true если хотя бы один элемнт массива удовлетворяет условия
+
+// const isAnlOnline = players.some(player => player.online);
+// console.log('isAnlOnline: ', isAnlOnline)
+
+// const anyHardcorePlayers = players.some(player => player.timePlayed > 300);
+// console.log('anyHardcorePlayers: ', anyHardcorePlayers);
+// *!________________________________________________________________*
+// !Array.prototype.reduce()
+// Поэлементно перебирает оригинальный массив
+// Возращает что угодно
+// Заменяет все на свете, но использовать нужно с умом
+
+// const numbers = [5, 10, 15, 20, 25];
+
+// const total = numbers.reduce((acc, number) => {
+//    console.log('acc: ', acc);
+//    console.log('number: ', number);
+
+//    return acc + number;
+// }, 0);
+// console.log(total);
+
+// accumulator = 0 -> number = 5 -> return 0 + 5
+// accumulator = 5 -> number = 10 -> return 5 + 10
+// accumulator = 15 -> number = 15 -> return 15 + 15
+// accumulator = 30 -> number = 20 -> return 30 + 20
+// accumulator = 50 -> number = 25 -> return 50 + 25
+// *!________________________________________________________________*
+// ?Считывает общую зарплату
+
+// const salary = {
+//    mango: 100,
+//    leo: 250,
+//    den: 50,
+// };
+
+// const totalSalary = Object.values(salary).reduce((total, value) => {
+//    return total + value;
+// }, 0);
+// console.log(totalSalary);
+// *!________________________________________________________________*
+// const players = [
+//   { id: "player-1", name: "Leo", timePlayed: 300, points: 50, online: false },
+//   { id: "player-2", name: "Piti", timePlayed: 150, points: 90, online: true },
+//   { id: "player-3", name: "Givi", timePlayed: 500, points: 15, online: false },
+//   { id: "player-4", name: "Aleks", timePlayed: 340, points: 86, online: true },
+//   { id: "player-5", name: "Vidi", timePlayed: 280, points: 33, online: false },
+// ];
+// *!________________________________________________________________*
+// ?Считываем общую количество часов игрока
+
+// const totalTimePlayer = players.reduce((totalTime, player) =>
+//     totalTime + player.timePlayed,
+//    0,
+// );
+//    console.log(totalTimePlayer);
+// *!________________________________________________________________*
+// ?Считываем общую сумму товаров корзины
+
+// const cart = [
+//   { label: "Apples", price: 100, quantity: 2 },
+//   { label: "Bananas", price: 150, quantity: 3 },
+//   { label: "Lemons", price: 80, quantity: 4 },
+// ];
+
+// const totalAmonut = cart.reduce
+//    ((totol, { price, quantity }) => totol + price * quantity,
+//    0,
+// );
+// *!________________________________________________________________*
+// ?Собираем все теги из твитов
+
+// const tweets = [
+//   { id: "000", likes: 5, tags: ["js", "nodejs"] },
+//   { id: "001", likes: 3, tags: ["html", "css"] },
+//   { id: "002", likes: 12, tags: ["js", "css", "nodejs"] },
+//   { id: "003", likes: 6, tags: ["js", "nodejs", "html"] },
+//   { id: "004", likes: 0, tags: ["js", "nodejs", "js", "react"] },
+// ];
+
+// const allTags = tweets.reduce((acc, tweet) => {
+//    return [...acc, ...tweet.tags];
+// }, []);
+// console.log(allTags);
+
+// пошаговый разбора примера
+// 1 - й
+// acc = [], tweet.tags = ["js", "nodejs"] return [...[], ...["js", "nodejs"]]
+// 2 - й
+// acc = ["js", "nodejs"] tweet.tags = ["js", "nodejs"]
+// 3 - й
+// return [...["js", "nodejs"], ...["html", "css"]];
+// ["js", "nodejs", "html", "css"];
+// *!________________________________________________________________*
+// ?Ведем статистику тегов
+
+// const tagsStats = allTags.reduce((acc, tag) => {
+//    console.log(acc);
+   
+//    // если свойство с ключем tag есть, увеличить его значение на 1
+//    if (acc[tag]) {
+//       acc[tag] += 1;
+
+//       return acc;
+//    }
+
+//    // если совйства нет с таким ключем что в tag, сделать и записать 1
+//    acc[tag] = 1;
+
+//    return acc;
+// }, {});
+// console.log(tagsStats);
+
+// ?Не мутабельное вариант
+
+// const tagsStats = allTags.reduce((acc, tag) => {
+//   console.log(acc);
+
+//   // если свойство с ключем tag есть, увеличить его значение на 1
+//   if (acc[tag]) {
+//          return {
+//             ...acc,
+//             [tag]: acc.tag + 1
+//     };
+//   }
+//   // если совйства нет с таким ключем что в tag, сделать и записать 1
+  
+//    return {
+//       ...acc,
+//       [tag]: 1
+//    };
+//  }, {});
+// console.log(tagsStats);
+// *!________________________________________________________________*
+// ?Пример с тернальным оператором
+
+// const tagsStats = allTags.reduce((acc, tag) => ({
+//    ...acc,
+//    [tag]: acc[tag] ? acc[tag] + 1 : 1,
+// }),
+//    {},
+// );
+// console.log(tagsStats);
+// *!________________________________________________________________*
