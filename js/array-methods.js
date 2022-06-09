@@ -355,3 +355,15 @@
 // );
 // console.log(tagsStats);
 // *!________________________________________________________________*
+// !Array.prototype.sort(callback(currentEl, nextEl){})
+// Сортирует и ИЗМЕНЯЕТ орегинальный массив
+// По умолчанию:
+// - сортирует по возрастанию
+// - приводит элементы к строке и сортирует по[Unicode](https://unicode-table.com/en/)
+
+const nambers = [1, 9, 6, 2, 3];
+console.log('nambers', nambers);
+
+const letters = ['b', 'B', 'a', 'A'];
+console.log('letters', letters);
+
