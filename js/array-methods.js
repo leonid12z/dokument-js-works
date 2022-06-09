@@ -361,9 +361,78 @@
 // - сортирует по возрастанию
 // - приводит элементы к строке и сортирует по[Unicode](https://unicode-table.com/en/)
 
-const nambers = [1, 9, 6, 2, 3];
-console.log('nambers', nambers);
+// const nambers = [1, 9, 6, 2, 3];
+// nambers.sort();
+// console.log('nambers', nambers);
 
-const letters = ['b', 'B', 'a', 'A'];
-console.log('letters', letters);
+// const letters = ['b', 'B', 'a', 'A'];
+// letters.sort();
+// console.log('letters', letters);
+// *!________________________________________________________________*
+// !compareFunction - функция сравнения(callback)
+// Элементы массива сортируються в соответствии с ее возращаемым значением
+//    - если compareFunction(A, B) меньше 0, сортировка поставит А перед В
+//    - если compareFunction(A, B) больше 0, сортировка поствит В преде А
+//    - если compareFunction(A, B) вернет 0, сортировка оставит А и В на
+// неизменна по отношению друг к другу, но отсартирует их по отношению ко всем
+// другим элементам
 
+// ?Сортируем орегиналльный массив
+
+// const nambers = [1, 9, 6, 2, 3];
+
+// console.log('nambers', nambers);
+
+// nambers.sort((curEl, nextEl) => {
+//    return curEl - nextEl;
+// });
+
+// console.log(nambers);
+// *!________________________________________________________________*
+// Как сделать копию массива чтобы не сортировать оригинальный
+// !Array.prototype.slice()
+// Операция spread
+
+// const nambers = [1, 9, 6, 2, 3];
+// const ascSortedNumbers = [...nambers].sort((a, b) => a - b);
+// const descSortedNumbers = [...nambers].sort((a, b) => b - a);
+
+// console.log('nambers', nambers);
+// console.log('ascSortedNumbers', ascSortedNumbers);
+// console, log('descSortedNumbers', descSortedNumbers);
+// *!________________________________________________________________*
+// ?Кастомная сортировка сложных типов
+
+// const players = [
+//   { id: "player-1", name: "Leo", timePlayed: 300, points: 50, online: false },
+//   { id: "player-2", name: "Piti", timePlayed: 150, points: 90, online: true },
+//   { id: "player-3", name: "Givi", timePlayed: 500, points: 15, online: false },
+//   { id: "player-4", name: "Aleks", timePlayed: 340, points: 86, online: true },
+//   { id: "player-5", name: "Vidi", timePlayed: 280, points: 33, online: false },
+// ];
+// *!________________________________________________________________*
+
+// ?По игровому времен
+
+// const sortedByBestPlayers = [...players].sort((prevPlayer, nextPlayer) => {
+//    return prevPlayer.timePlayed - nextPlayer.timePlayed;
+// });
+
+// console.log(sortedByBestPlayers);
+// *!________________________________________________________________*
+// ?Кастовая функция сортировки имен по возрастанию или убыванию
+
+// const byName = [...players].sort((a, b) => {
+//    const result = a.name[0] > b.name[0];
+
+//    if (result) {
+//       return 1;
+//    }
+
+//    if (!result) {
+//       return -1;
+//    }
+// });
+
+// console.log(byName);
+// *!________________________________________________________________*
