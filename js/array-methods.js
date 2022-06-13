@@ -389,7 +389,7 @@
 
 // console.log(nambers);
 // *!________________________________________________________________*
-// Как сделать копию массива чтобы не сортировать оригинальный
+// ?Как сделать копию массива чтобы не сортировать оригинальный
 // !Array.prototype.slice()
 // Операция spread
 
@@ -435,4 +435,116 @@
 // });
 
 // console.log(byName);
+// *!________________________________________________________________*
+// !Array.prototype.flat(depth)
+// Разглаживает массив до указанной глубины
+// По умолчанию глубина 1
+
+// const array = [1, 2, [4, [5]], [6, [7, 8, [9]]]];
+// console.log(array.flat(2));
+
+// !Array.prototype.flatMap(callback)
+// ?Комбинация map + flat
+
+// const players = [
+//   { id: "player-1", name: "Leo", timePlayed: 300, points: 50, online: false },
+//   { id: "player-2", name: "Piti", timePlayed: 150, points: 90, online: true },
+//   { id: "player-3", name: "Givi", timePlayed: 500, points: 15, online: false },
+//   { id: "player-4", name: "Aleks", timePlayed: 340, points: 86, online: true },
+//   { id: "player-5", name: "Vidi", timePlayed: 280, points: 33, online: false },
+// ];
+
+// const tags = tweets.reduce((acc, tweet) => [...acc, ...tweet.tags], []);
+// console.log(tags);
+
+// const stats = tags.reduce((acc, tag) => {
+//    return {
+//       ...acc,
+//       [tag]: acc[tag] ? acc[tag] + 1 : 1,
+//    };
+// }, {});
+// *!________________________________________________________________*
+// const stats = tweets.flatMap(t => t.tags)
+//    .reduce((acc, tag) => ({
+//    ...acc,
+//    [tag]: acc[tag] ? acc[tag] + 1 : 1,
+// }),
+//    {},
+// );
+// *!________________________________________________________________*
+
+// ?Альтернативная работа преведущей
+
+// const tags = tweets.map(t => t.tags).flat();
+// console.log(tags);
+
+// const tags = tweets.flatMap(t => t.tags);
+// console.log(tags);
+
+// const stats = tags.reduce((acc, tag) => {
+//       return {
+//             ...acc,
+//             [tag]: acc[tag] ? acc[tag] + 1 : 1,
+//          };
+//       }, {});
+// console.log(stats);
+      
+// *!________________________________________________________________*
+// !Цепочка вызовов - chaining
+// const nambers = [1, 5, 2, 4, 3];
+
+// const greaterThenTwo = nambers.filter(num => num > 2);
+ // console.log(greaterThenTwo);
+
+// const multByThree = greaterThenTwo.map(num => num * 3);
+   // console.log(multByThree);
+
+// const sorted = multByThree.sort((a, b) =>  a - b );
+  // console.log(sorted);
+
+// ?Цепочка преведущих трех
+
+// const sorted = nambers
+//   .filter((num) => num > 2)
+//   .map((num) => num * 3)
+//   .sort((a, b) => a - b);
+  
+// console.log(sorted);
+// *!________________________________________________________________*
+// ?Сортируем тех кто онлайн по рангу
+// сначала фильтруем
+// потом сортируем
+
+// const players = [
+//   { id: "player-1", name: "Leo", timePlayed: 300, points: 50, online: false },
+//   { id: "player-2", name: "Piti", timePlayed: 150, points: 90, online: true },
+//   { id: "player-3", name: "Givi", timePlayed: 500, points: 15, online: false },
+//   { id: "player-4", name: "Aleks", timePlayed: 340, points: 86, online: true },
+//   { id: "player-5", name: "Vidi", timePlayed: 280, points: 33, online: false },
+// ];
+
+// const onlineAndSorted = players.filter(player => player.online)
+//    .sort((playerA, playerB) => playerA.timePlayed - playerB.timePlayed);
+
+// console.log(onlineAndSorted);
+// *!________________________________________________________________*
+// ?Chaining в методах обьекта как jquery
+
+// const element = {
+//    class: '',
+//    hovered: false,
+//    changeClass(cls) {
+//       this.class = cls;
+
+//       return this;
+//    },
+//    toggleHovered() {
+//       this.hovered = !this.hovered;
+
+//       return this;
+//    },
+// };
+
+// element.toggleHovered().changeClass('open');
+// console.log(element); 
 // *!________________________________________________________________*
