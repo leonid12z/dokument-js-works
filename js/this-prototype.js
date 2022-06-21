@@ -123,28 +123,149 @@
 // *!________________________________________________________________*
 // ?Задача - 3
 
-const makeChangeColor = function () {
-   const changeColor = function (color) {
-      console.log('changeColor -> this', this);
-      this.color = color;
-   };
+// const makeChangeColor = function () {
+//    const changeColor = function (color) {
+//       console.log('changeColor -> this', this);
+//       this.color = color;
+//    };
 
-   changeColor(); // Какой ??? this
+//    changeColor(); // Какой ??? this undefined
     
-   const sweater = {
-      color: 'teal',
-   };
+//    const sweater = {
+//       color: 'teal',
+//    };
 
-   sweater.updateColor = changeColor;
+//    sweater.updateColor = changeColor;
 
-   sweater.updateColor('red');  //Какой??? this
-};
+//    sweater.updateColor('red');  //Какой??? this
 
-const swapColor = makeChangeColor();
+//    return sweater.updateColor
+// };
 
- swapColor('blue'); //Какой??? this
+// const swapColor = makeChangeColor();
 
+//  swapColor('blue'); //Какой??? this
+// *!________________________________________________________________*
 // ?Задача - 4
 
+// const makeChangeColor = function () {
+//    const changeColor = function (color) {
+//       console.log('changeColor -> this', this);
+//       this.color = color;
+//    };
+
+//    return changeColor;
+// };
+
+// const updateColor = makeChangeColor();
+//  updateColor('yellow'); //Какой this ???
+   
+// const hat = {
+//    color: 'blue',
+//    updateColor,
+// };
+
+// hat.updateColor('orange'); //Какой this???
+ // *!________________________________________________________________*
 // ?Задача - 5
+
+// const counter = {
+//    value: 0,
+//    increment(value) {
+//       console.log('increment -> this', this);
+//       this.value += value;
+//    },
+//    decrement(value) {
+//       console.log('decrement -> this', this);
+//       this.value -= value;
+//    },
+// };
+
+// const updateCounter = function (value, operation) {
+//    operation(value);
+// };
+
+// updateCounter(10, counter.increment);
+// updateCounter(5, counter.decrement);
+
+// *!________________________________________________________________*
+// !call - apply
+
+// const showThis = function () {
+//    console.log('showThis -> this', this);
+// };
+
+// showThis();
+
+// const fnA = {
+//    a: 5,
+//    b: 10,
+// };
+
+// showThis.call(fnA, 15, 25); Вызывает какуето функцию, и преднудительно одну вызывает
+// showThis.apply(fnA, [1, 5, 5]); Предаеться как массив
+// *!________________________________________________________________*
+// !call - apply
+
+// const changeColor = function (color) {
+//    console.log('change -> this', this);
+//    this.color = color;
+// };
+
+// const hat = {
+//    color: 'black',
+// };
+
+// changeColor.call(hat, 'orange');
+// console.log(hat);
+
+// const sweater = {
+//    color: 'green',
+// };
+
+// changeColor.call(sweater, 'blue');
+// console.log(sweater);
+
+// *!________________________________________________________________*
+// !bind
+
+// const changeColor = function (color) {
+//   console.log("change -> this", this);
+//   this.color = color;
+// };
+
+// const hat = {
+//   color: "black",
+// };
+
+// const sweater = {
+//   color: "green",
+// };
+
+// const changeHatColor = changeColor.bind(hat);
+// const changeSweaterColor = changeColor.bind(sweater);
+
+// changeHatColor();
+// changeSweaterColor();
+// *!________________________________________________________________*
+// ?Что бы работал код при вызове
+
+// const counter = {
+//    value: 0,
+//    increment(value) {
+//       console.log('increment -> this', this);
+//       this.value += value;
+//    },
+//    decrement(value) {
+//       console.log('decrement -> this', this);
+//       this.value -= value;
+//    },
+// };
+
+// const updateCounter = function (value, operation) {
+//    operation(value);
+// };
+
+// updateCounter(10, counter.increment.bind(counter));
+// updateCounter(5, counter.decrement.bind(counter));
 // *!________________________________________________________________*
